@@ -15,19 +15,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Build Application for Testing
-        run: |
+        readun: |
           xcodebuild build-for-testing \
-            - project TodoList.xcodeproj \
-            - scheme TodoList \
-            - destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            -project TodoList.xcodeproj \
+            -scheme TodoList \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
             CODE_SIGNING_ALLOWED=NO
       - name: Run Unit Tests
         run: |
           xcodebuild test-without-building \
-            - project TodoList.xcodeproj \
-            - scheme TodoList \
-            - destination 'platform=iOS Simulation,name=iPhone 17,OS=26.5' \
-            CODE_SIGNING_ALLOWE=NO
+            -project TodoList.xcodeproj \
+            -scheme TodoList \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.5' \
+            CODE_SIGNING_ALLOWED=NO
 
   security-scan:
     name: CodeQL Security scan
